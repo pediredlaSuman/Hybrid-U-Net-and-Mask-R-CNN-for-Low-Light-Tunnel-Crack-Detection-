@@ -1,4 +1,4 @@
-<img width="546" height="358" alt="image" src="https://github.com/user-attachments/assets/a6925f04-7039-43cd-8729-d64dafe0a9fe" />U-Net and mask RCNN model to segment/cemetery tunnel cracks, even in the challenging conditions
+U-Net and mask RCNN model to segment/cemetery tunnel cracks, even in the challenging conditions
 – It achieves high accuracy (IoU: 0.847, Dice: 0.918), and it successfully detects the hairline, transverse, longitudinal,
 and disguised cracks in the KICT Tunnel Crack Segmentation dataset.
 
@@ -27,5 +27,16 @@ detection in complex tunnel scenes.
 🔹Combines pixel-wise segmentation with
 instance-level detection for robust crack
 localization
+
+Experimental results and discussion:
+<img width="685" height="328" alt="image" src="https://github.com/user-attachments/assets/b2b80903-efcc-4476-8df6-88377e1914dd" />
+<img width="702" height="308" alt="image" src="https://github.com/user-attachments/assets/ab4f76c6-0337-4784-af97-8d8b9206d4a7" />
+<img width="667" height="337" alt="image" src="https://github.com/user-attachments/assets/90a934fe-c589-43c4-a207-7c2b49f2b674" />
+<img width="740" height="336" alt="image" src="https://github.com/user-attachments/assets/a2cbde22-ad46-49fb-a646-2d4542cd5a45" />
+<img width="702" height="348" alt="image" src="https://github.com/user-attachments/assets/f6cf1b1f-94f3-4f32-a7d3-8b66e85521a7" />
+<img width="884" height="280" alt="image" src="https://github.com/user-attachments/assets/143a3112-677e-4596-a1af-7981f5f28eda" />
+<img width="920" height="297" alt="image" src="https://github.com/user-attachments/assets/24fa2756-2775-43e4-8493-aab9fb75fb46" />
+<img width="874" height="275" alt="image" src="https://github.com/user-attachments/assets/30f4d3e6-c24a-4f01-b125-c60d416f22dc" />
+
 
 
