@@ -6,17 +6,12 @@ Developed a Deep Learning-Based Crack Detection System. Preprocessed and Augment
 
 <img width="776" height="601" alt="image" src="https://github.com/user-attachments/assets/70d85f88-95b0-48dc-bd72-ac4caa48de5a" />
 
-🔹U-Net segments low-light tunnel                   <img width="546" height="358" alt="image" src="https://github.com/user-attachments/assets/68d5ba4a-0c28-4916-baa9-770f382fe2ad" />
-images to generate initial crack masks.
-🔹These masks highlight crack regions for
-refinement.
-🔹Mask R-CNN uses the image and mask               <img width="798" height="294" alt="image" src="https://github.com/user-attachments/assets/f964c49d-d0f3-49f9-a924-9e2212837914" />
-to detect and classify cracks accurately.
-🔹 The hybrid model enhances crack
-detection in complex tunnel scenes.
-🔹Combines pixel-wise segmentation with
-instance-level detection for robust crack
-localization
+🔹U-Net segments low-light tunnel   images to generate initial crack masks.🔹These masks highlight crack regions for refinement.        
+<img width="546" height="358" alt="image" src="https://github.com/user-attachments/assets/68d5ba4a-0c28-4916-baa9-770f382fe2ad" />
+
+🔹Mask R-CNN uses the image and mask   to detect and classify cracks accurately.🔹 The hybrid model enhances crack detection in complex tunnel scenes.🔹Combines pixel-wise segmentation withinstance-level detection for robust crack localization         
+<img width="798" height="294" alt="image" src="https://github.com/user-attachments/assets/f964c49d-d0f3-49f9-a924-9e2212837914" />
+
 
 Experimental results and discussion:
 
