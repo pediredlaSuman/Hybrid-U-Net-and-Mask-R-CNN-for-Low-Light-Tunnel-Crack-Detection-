@@ -1,21 +1,107 @@
-U-Net and mask RCNN model to segment/cemetery tunnel cracks, even in the challenging conditions
-It achieves high accuracy (IoU: 0.847, Dice: 0.918), and it successfully detects the hairline, transverse, longitudinal,
-and disguised cracks in the KICT Tunnel Crack Segmentation dataset.
+# 🚧 Hybrid U-Net and Mask R-CNN for Low-Light Tunnel Crack Detection
 
-Developed a Deep Learning-Based Crack Detection System. Preprocessed and Augmented the Dataset for Better Generalization.Train and Fine-Tune the Segmentation Model. Visualized Model Predictions for Crack Detection. Saved and Deployed the Model for Future Use
+**Skills Used:** `Python`, `TensorFlow`, `OpenCV`, `Deep Learning`, `Image Segmentation`, `Computer Vision`
 
-<img width="776" height="601" alt="image" src="https://github.com/user-attachments/assets/70d85f88-95b0-48dc-bd72-ac4caa48de5a" />
+---
 
-🔹U-Net segments low-light tunnel   images to generate initial crack masks.🔹These masks highlight crack regions for refinement.        
-<img width="546" height="358" alt="image" src="https://github.com/user-attachments/assets/68d5ba4a-0c28-4916-baa9-770f382fe2ad" />
+## 🔍 Project Overview
 
-🔹Mask R-CNN uses the image and mask   to detect and classify cracks accurately.🔹 The hybrid model enhances crack detection in complex tunnel scenes.🔹Combines pixel-wise segmentation withinstance-level detection for robust crack localization         
-<img width="798" height="294" alt="image" src="https://github.com/user-attachments/assets/f964c49d-d0f3-49f9-a924-9e2212837914" />
+An automated tunnel crack detection system using a hybrid deep learning architecture combining **U-Net** and **Mask R-CNN**. Designed to detect and segment hairline, transverse, longitudinal, and disguised cracks under challenging low-light conditions using the **KICT Tunnel Crack Segmentation Dataset**.
 
+---
 
-Experimental results and discussion:
+## 🧠 Architecture Summary
 
-<img width="685" height="328" alt="image" src="https://github.com/user-attachments/assets/b2b80903-efcc-4476-8df6-88377e1914dd" /><img width="702" height="308" alt="image" src="https://github.com/user-attachments/assets/ab4f76c6-0337-4784-af97-8d8b9206d4a7" /><img width="667" height="337" alt="image" src="https://github.com/user-attachments/assets/90a934fe-c589-43c4-a207-7c2b49f2b674" /><img width="740" height="336" alt="image" src="https://github.com/user-attachments/assets/a2cbde22-ad46-49fb-a646-2d4542cd5a45" /><img width="702" height="348" alt="image" src="https://github.com/user-attachments/assets/f6cf1b1f-94f3-4f32-a7d3-8b66e85521a7" /><img width="884" height="280" alt="image" src="https://github.com/user-attachments/assets/143a3112-677e-4596-a1af-7981f5f28eda" /><img width="920" height="297" alt="image" src="https://github.com/user-attachments/assets/24fa2756-2775-43e4-8493-aab9fb75fb46" /><img width="874" height="275" alt="image" src="https://github.com/user-attachments/assets/30f4d3e6-c24a-4f01-b125-c60d416f22dc" />
+### 🧩 Step 1: Semantic Segmentation with U-Net
+- Segments low-light tunnel images to generate pixel-wise crack masks.
+- Handles varying illumination and captures fine crack patterns.
 
+### 🧩 Step 2: Instance Detection with Mask R-CNN
+- Uses U-Net masks to localize individual cracks.
+- Enhances segmentation with instance-level refinement.
+- Backbone: ResNet-101 + FPN
+- Head: DeepLabV3-style decoder with ASPP for boundary precision.
 
+---
+
+## 🎯 Key Results
+
+| Metric            | Score |
+|-------------------|-------|
+| IoU               | 0.847 |
+| Dice Coefficient  | 0.918 |
+| Precision         | 0.902 |
+| Recall            | 0.937 |
+| F1-Score          | 0.919 |
+| Inference Speed   | 24 FPS |
+
+✅ Achieved **state-of-the-art performance** compared to YOLOv5s, Mini-U-Net, and Mixed Attention models.
+
+---
+
+## 🗃 Dataset and Preprocessing
+
+- **Dataset**: KICT Tunnel Crack Segmentation Dataset (11,300+ labeled images)
+- **Preprocessing**:
+  - Resizing: 1024×1024 px
+  - CLAHE: Enhances contrast in poor lighting
+  - Gaussian Noise Removal
+  - Perspective Correction
+  - Normalization and tensor conversion using PyTorch transforms
+
+---
+
+## ⚙️ Training Configuration
+
+- **Loss**: Mean Squared Error (MSE)
+- **Optimizer**: Adam (`lr = 1e-4`)
+- **Scheduler**: ReduceLROnPlateau
+- **Early Stopping**: Patience = 5
+- **Epochs**: 30 | **Batch Size**: 4
+
+---
+
+## 🧪 Crack Types Handled
+
+| Crack Type         | Precision | Recall | F1 Score |
+|--------------------|-----------|--------|----------|
+| Hairline Cracks     | 0.887     | 0.921  | 0.904    |
+| Transverse Cracks   | 0.914     | 0.945  | 0.929    |
+| Longitudinal Cracks | 0.906     | 0.931  | 0.918    |
+| Branching Cracks    | 0.901     | 0.918  | 0.909    |
+| Disguised Cracks    | 0.882     | 0.910  | 0.896    |
+
+---
+
+## 📸 Visual Results
+
+U-Net segmentation (left), refined with Mask R-CNN (right):
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/70d85f88-95b0-48dc-bd72-ac4caa48de5a" width="600"/>
+</p>
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/68d5ba4a-0c28-4916-baa9-770f382fe2ad" width="500"/>
+</p>
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/f964c49d-d0f3-49f9-a924-9e2212837914" width="700"/>
+</p>
+
+---
+
+## 🚀 Future Scope
+
+- Integration with **multi-modal sensors** (e.g., Lidar, Radar)
+- Deployment on **edge devices** for real-time tunnel inspection
+- Extension to **temporal crack detection** in video streams
+
+---
+
+## 🧠 Authors
+
+- [Pediredla Suman](mailto:pediredla22102@iiitnr.edu.in)
+- [Bonda Naveen Kumar](mailto:bonda22102@iiitnr.edu.in)
+- [Sambangi Chaitanya](mailto:sambangi22100@iiitnr.edu.in)
 
